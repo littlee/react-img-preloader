@@ -1,0 +1,25 @@
+{
+  "name": "react-img-preloader",
+  "version": "1.0.0",
+  "description": "making images preloading dead-simply, additionally, offering both the total count of images aimed for preloading and the count of those have been  preloaded, to ease the work if anyone fancy to show a running progress bar. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huan555/react-img-preloader.git"
+  },
+  "keywords": [
+    "react",
+    "image",
+    "preload",
+    "progress-bar"
+  ],
+  "author": "huan555 <huanqiu183@yeah.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huan555/react-img-preloader/issues"
+  },
+  "homepage": "https://github.com/huan555/react-img-preloader#readme"
+}
