@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/huan555/react-img-preloader.git"
+    "url": "git+https://github.com/littlee/react-img-preloader.git"
   },
   "keywords": [
     "react",
@@ -20,9 +20,9 @@
   "author": "huan555 <huanqiu183@yeah.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/huan555/react-img-preloader/issues"
+    "url": "https://github.com/littlee/react-img-preloader/issues"
   },
-  "homepage": "https://github.com/huan555/react-img-preloader#readme",
+  "homepage": "https://github.com/littlee/react-img-preloader#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
