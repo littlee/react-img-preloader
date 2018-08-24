@@ -8,6 +8,7 @@
 
 
 
+
 <div align="center">
 
 <h2>Install 💡</h2>
@@ -28,7 +29,7 @@ npm install react-img-preloader --save-dev
 
 </div>
 
-```react
+```javascript
 import ImgsPreloader from 'react-img-preloader'
 
 // gather up all images you want for preload in an array
@@ -40,8 +41,8 @@ var images = [
 ]
 
 <ImgsPreloader imgsArr={images}>
-    {
-      ({loaded, total}) => <div> imgages planned for preload: {total}; images have been preloaded: {loaded}</div>
+  {
+    ({loaded, total}) => <div>imgages planned for preload: {total}; images have been preloaded: {loaded}</div>
 	}
 </ImgsPreloader>
 ```
