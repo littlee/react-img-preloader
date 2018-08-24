@@ -2,9 +2,10 @@
   "name": "react-img-preloader",
   "version": "1.0.0",
   "description": "making images preloading dead-simply, additionally, offering both the total count of images aimed for preloading and the count of those have been  preloaded, to ease the work if anyone fancy to show a running progress bar. ",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "NODE_ENV=production babel ./dist/App.js -o ./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,28 @@
   "bugs": {
     "url": "https://github.com/huan555/react-img-preloader/issues"
   },
-  "homepage": "https://github.com/huan555/react-img-preloader#readme"
+  "homepage": "https://github.com/huan555/react-img-preloader#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^7.2.3",
+    "babel-preset-react-app": "^3.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-react-app": "^2.1.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.11.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "dependencies": {
+    "react": "^16.4.2"
+  }
 }
