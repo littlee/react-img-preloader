@@ -49,7 +49,6 @@ var ImgsPreloader = function (_React$Component) {
 
       var imgsArr = this.props.imgsArr;
 
-      console.log('imgsArr mount: ', imgsArr);
       var length = imgsArr.length;
       this.setState({
         total: length
