@@ -11,11 +11,8 @@ let imgs = [
   'http://placehold.it/300x300'
 ]
 
-storiesOf('Button', module).add('with some emoji', () => (
-  <ImgPreloader
-    imgs={imgs}
-    onComplete={action('load complete')}
-  >
-    {({ loaded, total }) => <div>{loaded + '/' + total}</div>}
+storiesOf('ImgPreloader', module).add('default', () => (
+  <ImgPreloader imgs={imgs} onComplete={action('load complete')}>
+    {({ loaded, total }) => <h1>{loaded + '/' + total}</h1>}
   </ImgPreloader>
 ))

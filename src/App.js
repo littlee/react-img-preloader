@@ -49,4 +49,4 @@ ImgsPreloader.propTypes = {
   onComplete: PropTypes.func
 }
 
-export default ImgsPreloader
+export default ImgsPreloader;
