@@ -1,4 +1,5 @@
 var React = require('react')
+var PropTypes = require('prop-types')
 
 class ImgsPreloader extends React.Component {
   state = {
@@ -41,6 +42,11 @@ class ImgsPreloader extends React.Component {
   render() {
     return <div>{this.props.children(this.state)}</div>
   }
+}
+
+ImgsPreloader.propTypes = {
+  imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onComplete: PropTypes.func
 }
 
 module.exports = ImgsPreloader
