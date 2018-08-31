@@ -10,7 +10,7 @@ class ImgsPreloader extends React.Component {
 
   _preloadImgs = () => {
     if (this.imgsRemain.length) {
-      this.setState((prev) => {
+      this.setState(prev => {
         return {
           loaded: prev.loaded + 1
         }
@@ -19,30 +19,28 @@ class ImgsPreloader extends React.Component {
       let img = new Image()
       img.onload = () => this._preloadImgs()
       img.src = this.imgsRemain.shift()
+    } else {
+      this.props.onComplete && this.props.onComplete()
     }
   }
 
-  componentDidMount () {
-    const { imgsArr } = this.props
-    const length = imgsArr.length
+  componentDidMount() {
+    const { imgs } = this.props
+    const length = imgs.length
     this.setState(
       {
         total: length
       },
       () => {
-        this.imgsRemain = imgsArr.slice()
+        this.imgsRemain = imgs.slice()
         this._preloadImgs()
       }
     )
   }
 
-  render () {
-    return (
-      <div>
-        {this.props.children(this.state)}
-      </div>
-    )
+  render() {
+    return <div>{this.props.children(this.state)}</div>
   }
 }
 
-module.exports = ImgsPreloader;
+module.exports = ImgsPreloader

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "NODE_ENV=production babel ./dist/App.js -o ./dist/index.js"
+    "babel": "cross-env NODE_ENV=production babel ./src/App.js -o ./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
     "babel-preset-react-app": "^3.1.2",
+    "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
     "eslint-config-react-app": "^2.1.0",
     "eslint-plugin-flowtype": "^2.50.0",

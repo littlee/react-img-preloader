@@ -6,7 +6,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var React = require('react');
+var React = require("react");
 
 var ImgsPreloader = function (_React$Component) {
   _inherits(ImgsPreloader, _React$Component);
@@ -38,12 +38,14 @@ var ImgsPreloader = function (_React$Component) {
           return _this._preloadImgs();
         };
         img.src = _this.imgsRemain.shift();
+      } else {
+        _this.props.onComplete && _this.props.onComplete();
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(ImgsPreloader, [{
-    key: 'componentDidMount',
+    key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
 
@@ -58,10 +60,10 @@ var ImgsPreloader = function (_React$Component) {
       });
     }
   }, {
-    key: 'render',
+    key: "render",
     value: function render() {
       return React.createElement(
-        'div',
+        "div",
         null,
         this.props.children(this.state)
       );
