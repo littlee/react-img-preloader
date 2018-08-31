@@ -1,5 +1,5 @@
-var React = require('react')
-var PropTypes = require('prop-types')
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class ImgsPreloader extends React.Component {
   state = {
@@ -49,4 +49,4 @@ ImgsPreloader.propTypes = {
   onComplete: PropTypes.func
 }
 
-module.exports = ImgsPreloader
+export default ImgsPreloader
