@@ -13,7 +13,7 @@
 </div>
 
 ```bash
-npm install react-img-preloader --save-dev
+npm install react-img-preloader --save
 ```
 
 <div align="center">
