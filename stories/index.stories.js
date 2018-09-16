@@ -12,7 +12,7 @@ let imgs = [
 ]
 
 storiesOf('ImgPreloader', module).add('default', () => (
-  <ImgPreloader imgs={imgs} onComplete={action('load complete')}>
+  <ImgPreloader imgs={imgs} onComplete={action('load complete')} delay={1000}>
     {({ loaded, total }) => <h1>{loaded + '/' + total}</h1>}
   </ImgPreloader>
 ))

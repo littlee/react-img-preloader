@@ -9,21 +9,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React from 'react';
 import PropTypes from 'prop-types';
 
-var ImgsPreloader = function (_React$Component) {
-  _inherits(ImgsPreloader, _React$Component);
+var ImgPreloader = function (_React$Component) {
+  _inherits(ImgPreloader, _React$Component);
 
-  function ImgsPreloader() {
+  function ImgPreloader() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, ImgsPreloader);
+    _classCallCheck(this, ImgPreloader);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImgsPreloader.__proto__ || Object.getPrototypeOf(ImgsPreloader)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImgPreloader.__proto__ || Object.getPrototypeOf(ImgPreloader)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       loaded: 0,
       total: 0
     }, _this.imgsRemain = [], _this._preloadImgs = function () {
@@ -36,7 +36,7 @@ var ImgsPreloader = function (_React$Component) {
 
         var img = new Image();
         img.onload = function () {
-          return _this._preloadImgs();
+          setTimeout(_this._preloadImgs, _this.props.delay);
         };
         img.src = _this.imgsRemain.shift();
       } else {
@@ -45,7 +45,7 @@ var ImgsPreloader = function (_React$Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(ImgsPreloader, [{
+  _createClass(ImgPreloader, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
@@ -71,12 +71,17 @@ var ImgsPreloader = function (_React$Component) {
     }
   }]);
 
-  return ImgsPreloader;
+  return ImgPreloader;
 }(React.Component);
 
-ImgsPreloader.propTypes = {
+ImgPreloader.propTypes = {
   imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  delay: PropTypes.number,
   onComplete: PropTypes.func
 };
 
-export default ImgsPreloader;
+ImgPreloader.defaultProps = {
+  delay: 0
+};
+
+export default ImgPreloader;

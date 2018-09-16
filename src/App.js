@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-class ImgsPreloader extends React.Component {
+class ImgPreloader extends React.Component {
   state = {
     loaded: 0,
     total: 0
@@ -18,7 +18,9 @@ class ImgsPreloader extends React.Component {
       })
 
       let img = new Image()
-      img.onload = () => this._preloadImgs()
+      img.onload = () => {
+        setTimeout(this._preloadImgs, this.props.delay)
+      }
       img.src = this.imgsRemain.shift()
     } else {
       this.props.onComplete && this.props.onComplete()
@@ -44,9 +46,14 @@ class ImgsPreloader extends React.Component {
   }
 }
 
-ImgsPreloader.propTypes = {
+ImgPreloader.propTypes = {
   imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
+  delay: PropTypes.number,
   onComplete: PropTypes.func
 }
 
-export default ImgsPreloader;
+ImgPreloader.defaultProps = {
+  delay: 0
+}
+
+export default ImgPreloader

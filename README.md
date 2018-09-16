@@ -23,7 +23,7 @@ npm install react-img-preloader --save
 </div>
 
 ```js
-import ImgsPreloader from 'react-img-preloader'
+import ImgPreloader from 'react-img-preloader'
 
 // gather up all images you want for preload in an array
 var images = [
@@ -33,11 +33,11 @@ var images = [
   // ... more goes here
 ]
 
-<ImgsPreloader imgs={images} onComplete={() => {
+<ImgPreloader imgs={images} onComplete={() => {
   console.log('All images are loaded')
 }}>
   {
     ({loaded, total}) => <div>imgages planned for preload: {total}; images have been preloaded: {loaded}</div>
 	}
-</ImgsPreloader>
+</ImgPreloader>
 ```
