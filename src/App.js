@@ -28,8 +28,7 @@ class ImgsPreloader extends React.Component {
   componentDidMount() {
     const { imgs } = this.props
     const length = imgs.length
-    this.setState(
-      {
+    this.setState({
         total: length
       },
       () => {
@@ -40,7 +39,7 @@ class ImgsPreloader extends React.Component {
   }
 
   render() {
-    return <div>{this.props.children(this.state)}</div>
+    return <div > { this.props.children(this.state) } < /div>
   }
 }
 

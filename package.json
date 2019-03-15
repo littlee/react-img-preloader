@@ -1,7 +1,7 @@
 {
   "name": "react-img-preloader",
   "version": "2.0.1",
-  "description": "making images preloading dead-simply, additionally, offering both the total count of images aimed for preloading and the count of those have been  preloaded, to ease the work if anyone fancy to show a running progress bar. ",
+  "description": "making images preloading dead-simple, additionally, offering both the total count of images aimed for preloading and the count of those have been  preloaded, to ease the work if anyone fancy to show a running progress bar. ",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,17 +9,22 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
+
+
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/littlee/react-img-preloader.git"
   },
+
+
   "keywords": [
     "react",
     "image",
     "preload",
     "progress-bar"
   ],
-  "author": "littlee <usedlittlee@gmail.com>",
+  "author": "littlee <usedlittlee@icloud.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/littlee/react-img-preloader/issues"
