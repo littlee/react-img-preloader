@@ -1,7 +1,12 @@
 {
   "name": "react-img-preloader",
+<<<<<<< HEAD
   "version": "2.0.1",
   "description": "making images preloading dead-simple, additionally, offering both the total count of images aimed for preloading and the count of those have been  preloaded, to ease the work if anyone fancy to show a running progress bar. ",
+=======
+  "version": "2.0.2",
+  "description": "making images preloading dead-simply, additionally, offering both the total count of images aimed for preloading and the count of those have been  preloaded, to ease the work if anyone fancy to show a running progress bar. ",
+>>>>>>> d8f6c3129175b7d2bebd18d881b3f778df65d377
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
