@@ -9,6 +9,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React from 'react';
 import PropTypes from 'prop-types';
 
+var isDataURL = function isDataURL(imgPath) {
+  return (/data:image\/(jpeg|png);base64/.test(imgPath)
+  );
+};
+
 var ImgPreloader = function (_React$Component) {
   _inherits(ImgPreloader, _React$Component);
 
@@ -25,7 +30,7 @@ var ImgPreloader = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ImgPreloader.__proto__ || Object.getPrototypeOf(ImgPreloader)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
       loaded: 0,
-      total: 0
+      total: 0 // total in production should not be 0
     }, _this.imgsRemain = [], _this._preloadImgs = function () {
       if (_this.imgsRemain.length) {
         _this.setState(function (prev) {
@@ -33,14 +38,27 @@ var ImgPreloader = function (_React$Component) {
             loaded: prev.loaded + 1
           };
         });
+        var currImg = _this.imgsRemain.shift();
 
-        var img = new Image();
-        img.onload = function () {
-          setTimeout(_this._preloadImgs, _this.props.delay);
-        };
-        img.src = _this.imgsRemain.shift();
+        if (isDataURL(currImg)) {
+          _this._preloadSpecifically();
+        } else {
+          var img = new Image();
+          img.onload = function () {
+            _this._preloadSpecifically();
+          };
+          img.src = currImg;
+        }
       } else {
         _this.props.onComplete && _this.props.onComplete();
+      }
+    }, _this._preloadSpecifically = function () {
+      var delay = _this.props.delay;
+
+      if (delay > 0) {
+        setTimeout(_this._preloadImgs, _this.props.delay);
+      } else {
+        _this._preloadImgs();
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -56,6 +74,9 @@ var ImgPreloader = function (_React$Component) {
       this.setState({
         total: length
       }, function () {
+        if (_this2.state.total === 0) {
+          console.warn('Passing empty array to "imgs" in ImgPreloader is not a good idea');
+        }
         _this2.imgsRemain = imgs.slice();
         _this2._preloadImgs();
       });
@@ -66,7 +87,9 @@ var ImgPreloader = function (_React$Component) {
       return React.createElement(
         'div',
         null,
-        this.props.children(this.state)
+        ' ',
+        this.props.children(this.state),
+        ' '
       );
     }
   }]);

@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const isDataURL = imgPath => /data:image\/(jpeg|png);base64/.test(imgPath)
+
 class ImgPreloader extends React.Component {
   state = {
     loaded: 0,
-    total: 0
+    total: 0 // total in production should not be 0
   }
 
   imgsRemain = []
@@ -16,24 +18,44 @@ class ImgPreloader extends React.Component {
           loaded: prev.loaded + 1
         }
       })
+      let currImg = this.imgsRemain.shift()
 
-      let img = new Image()
-      img.onload = () => {
-        setTimeout(this._preloadImgs, this.props.delay)
+      if (isDataURL(currImg)) {
+        this._preloadSpecifically()
+      } else {
+        let img = new Image()
+        img.onload = () => {
+          this._preloadSpecifically()
+        }
+        img.src = currImg
       }
-      img.src = this.imgsRemain.shift()
     } else {
       this.props.onComplete && this.props.onComplete()
+    }
+  }
+
+  _preloadSpecifically = () => {
+    const { delay } = this.props
+    if (delay > 0) {
+      setTimeout(this._preloadImgs, this.props.delay)
+    } else {
+      this._preloadImgs()
     }
   }
 
   componentDidMount() {
     const { imgs } = this.props
     const length = imgs.length
-    this.setState({
+    this.setState(
+      {
         total: length
       },
       () => {
+        if (this.state.total === 0) {
+          console.warn(
+            'Passing empty array to "imgs" in ImgPreloader is not a good idea'
+          )
+        }
         this.imgsRemain = imgs.slice()
         this._preloadImgs()
       }
@@ -41,7 +63,7 @@ class ImgPreloader extends React.Component {
   }
 
   render() {
-    return <div > { this.props.children(this.state) } < /div>
+    return <div> {this.props.children(this.state)} </div>
   }
 }
 
